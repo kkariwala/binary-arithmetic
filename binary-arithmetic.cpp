@@ -22,11 +22,44 @@ void add(int a[], int b[],int representation){
         c[i]=(x+y+rem)%2;
         rem=(rem+x+y)/2;
     }
+    cout << "Result in binary\n";
     for(int i=0;i<representation;i++)
     {
         cout << c[i] << " ";
     }
     cout << endl;
+    cout << "Result in Decimal\n";
+    int base = 1;
+    int decimalNum = 0;
+    if(c[0] == 0){
+        for(int i = representation-1 ; i >= 0;i--){
+            decimalNum += (c[i] * base);
+            base *= 2;
+        }
+        cout << decimalNum << endl;
+    }
+    else{
+        //convert into 2's complement for negative number
+        bool flag = false;
+        int itr = 31;
+        while(itr >= 0){
+            if(flag){
+                if(c[itr] == 0){c[itr] = 1;}
+                else{c[itr] = 0;}
+            }
+            if(!flag && c[itr] == 1){
+                flag = true;
+            }
+            itr--;
+        }
+
+        for(int i = representation-1 ; i >= 0;i--){
+            decimalNum += (c[i] * base);
+            base *= 2;
+        }
+        cout << -1 * decimalNum << endl;
+
+    }
 }
 
 void sub(int a[], int b[],int representation){
@@ -172,12 +205,12 @@ int main(){
             itr--;
         }
     }
-
+    cout << "Binary representation of Number 1\n";
     for(int i = 0 ; i< 32;i++){
         cout << arrA[i] << " ";
     }
     cout << endl;
-
+    cout << "Binary representation of Number 2\n";
     for(int i = 0 ; i< 32;i++){
         cout << arrB[i] << " ";
     }
