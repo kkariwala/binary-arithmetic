@@ -62,8 +62,8 @@ int main(){
     int operation;
     int representation;
 
-    int arrA[representation];
-    int arrB[representation];
+    int arrA[32];
+    int arrB[32];
 
     cout << "Enter the first integer\n";
     cin >> a;
@@ -71,42 +71,102 @@ int main(){
     cout << "Enter the second integer\n";
     cin >> b;
 
-    cout << "Enter the representation of the integer (32 bit / 16 bits)\n";
-    cin >> representation;
-
     cout << "Enter the operation number (1 or 2 or 3 or 4)\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n";
     cin >> operation;
 
-        /*
+    memset(arrA,0,sizeof(arrA));
+    memset(arrB,0,sizeof(arrB));
+
+    /*
     Converting the numbers into individual binary arrays
     */
-    int i = 0;
-    while (a > 0) {
-        // storing remainder in binary array
-        arrA[i] = a % 2;
-        a = a / 2;
-        i++;
+    int i = 31;
+    if(a > 0){
+        while (a > 0) {
+            // storing remainder in binary array
+            arrA[i] = a % 2;
+            a = a / 2;
+            i--;
+        }
     }
-    i=0;
-    while (b>0){
-        arrB[i] = b % 2;
-        b = b / 2;
-        i++;
+    else{
+        int temp = abs(a);
+        while (temp > 0) {
+            // storing remainder in binary array
+            arrA[i] = temp % 2;
+            temp = temp / 2;
+            i--;
+        }
+    
+        //convert into 2's complement for negative number
+        bool flag = false;
+        int itr = 31;
+        while(itr--){
+            if(flag){
+                if(arrA[itr] == 0){arrA[itr] = 1;}
+                else{arrA[itr] = 0;}
+            }
+            if(!flag && arrA[itr] == 1){
+                flag = true;
+            }
+        }
     }
+
+    i = 31;
+    if(b > 0){
+        while (b > 0) {
+            // storing remainder in binary array
+            arrB[i] = b % 2;
+            b = b / 2;
+            i--;
+        }
+    }
+    else{
+        int temp = abs(b);
+        while (temp > 0) {
+            // storing remainder in binary array
+            arrB[i] = temp % 2;
+            temp = temp / 2;
+            i--;
+        }
+    
+        //convert into 2's complement for negative number
+        bool flag = false;
+        int itr = 31;
+        while(itr--){
+            if(flag){
+                if(arrB[itr] == 0){arrB[itr] = 1;}
+                else{arrB[itr] = 0;}
+            }
+            if(!flag && arrB[itr] == 1){
+                flag = true;
+            }
+        }
+    }
+
+    // for(int i = 0 ; i< 32;i++){
+    //     cout << arrA[i] << " ";
+    // }
+    // cout << endl;
+
+    // for(int i = 0 ; i< 32;i++){
+    //     cout << arrB[i] << " ";
+    // }
+    // cout << endl;
 
     switch (operation)
     {
     case 1:
-        add(arrA,arrB,representation);
+        add(arrA,arrB,32);
         break;
     case 2:
-        sub(arrA,arrB,representation);
+        sub(arrA,arrB,32);
         break;
     case 3:
-        mul(arrA,arrB,representation);
+        mul(arrA,arrB,32);
         break;
     case 4:
-        division(arrA,arrB,representation);
+        division(arrA,arrB,32);
         break;    
     default:
         cout << "Kindly enter a number between 1 to 4 for the correct operation" << endl;
