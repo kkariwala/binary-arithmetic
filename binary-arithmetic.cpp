@@ -40,82 +40,20 @@ void sub(int a[], int b[],int representation){
     Returns: Prints the result of a - b in first 32-bit binary form 
     and then in a decimal form.
     */
-    int rem = 0;						
-	for(int i = representation - 1; i >= 0; i--)
-	{
-		
-		// Add a, b and carry
-		a[i] = a[i] + b[i] + rem;
-	
-		// If a[i] is 2
-		if(a[i] == 2)
-		{
-			a[i] = 0;
-			rem = 1;
-
-		}
-	
-		// If a[i] is 3
-		else if(a[i] == 3)
-		{
-			a[i] = 1;
-			rem = 1;
-		}
-		else
-			rem = 0;
-	}
-
-	cout << endl;
-	
-	// If carry is generated
-	// discard the carry
-	if(rem==1)
-	{	
-	
-	// print the result
-	for(int i = 0; i < representation; i++)
-	{
-			
-		// Print the result
-		cout<<a[i];	
-	}
-	}
-
-	// if carry is not generated
-	else				
-	{				
-		
-		// Calculate 2's Complement
-		// of the obtained result
-		for(int i = 0; i < representation; i++)
-		{				
-			if(a[i] == 1)
-				a[i] = 0;
-			else
-				a[i] = 1;
-		}
-		for(int i = representation- 1; i >= 0; i--)
-		{
-			if(a[i] == 0)
-			{
-				a[i] = 1;
-				break;
-			}
-		else
-			a[i] = 0;
-		}
-	
-		// Add -ve sign to represent
-		cout << "-";		
-	
-		// -ve result
-		// Print the resultant array
-		for(int i = 0; i < representation; i++)
-		{
-			cout << a[i];
-		}
-	}
-
+    //convert into 2's complement for negative number
+    bool flag = false;
+    int itr = 31;
+    while(itr >= 0){
+        if(flag){
+            if(b[itr] == 0){b[itr] = 1;}
+            else{b[itr] = 0;}
+        }
+        if(!flag && b[itr] == 1){
+            flag = true;
+        }
+        itr--;
+    }
+    add(a,b,representation);
 }
 
 void mul(int a[], int b[],int representation){
