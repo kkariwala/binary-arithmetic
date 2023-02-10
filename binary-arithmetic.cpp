@@ -1,4 +1,6 @@
 #include <iostream>
+#include <math.h>
+#include <string>
 using namespace std;
 
 void add(int a[], int b[],int representation){
@@ -67,7 +69,23 @@ void mul(int a[], int b[],int representation){
     Returns: Prints the result of a * b in first 32-bit binary form 
     and then in a decimal form.
     */
-   cout << "Multiplication Result \n";
+    // int c[representation];
+    int l=0,k=0;
+    int j=0;
+    for(int i=representation-1;i>=0;i--)
+    {
+        l+=(pow(2,j)*a[i]);
+        j++;
+    }
+    j=0;
+    for(int i=representation-1;i>=0;i--)
+    {
+        k+=(pow(2,j)*b[i]);
+        j++;
+    }
+
+   cout << "Multiplication Result \n"<< l*k << endl;
+
 }
 
 void division(int a[], int b[],int representation){
