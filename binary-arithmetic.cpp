@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void add(int a, int b){
+void add(int a[], int b[],int representation){
     /*
     Addition function
 
@@ -15,7 +15,7 @@ void add(int a, int b){
    cout << "Addiiton Result \n";
 }
 
-void sub(int a, int b){
+void sub(int a[], int b[],int representation){
     /*
     Subtraction function
     
@@ -29,7 +29,7 @@ void sub(int a, int b){
    cout << "Subtraction Result \n";
 }
 
-void mul(int a, int b){
+void mul(int a[], int b[],int representation){
     /*
     Multiplication function
     
@@ -43,7 +43,7 @@ void mul(int a, int b){
    cout << "Multiplication Result \n";
 }
 
-void division(int a, int b){
+void division(int a[], int b[],int representation){
     /*
     Division function
     
@@ -60,11 +60,19 @@ void division(int a, int b){
 int main(){
     int a, b;
     int operation;
-    cout << "Enter the first integer" << endl;
+    int representation;
+
+    int arrA[representation];
+    int arrB[representation];
+
+    cout << "Enter the first integer\n";
     cin >> a;
 
-    cout << "Enter the second integer" << endl;
+    cout << "Enter the second integer\n";
     cin >> b;
+
+    cout << "Enter the representation of the integer (32 bit / 16 bits)\n";
+    cin >> representation;
 
     cout << "Enter the operation number (1 or 2 or 3 or 4)\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n";
     cin >> operation;
@@ -72,16 +80,16 @@ int main(){
     switch (operation)
     {
     case 1:
-        add(a,b);
+        add(arrA,arrB,representation);
         break;
     case 2:
-        sub(a,b);
+        sub(arrA,arrB,representation);
         break;
     case 3:
-        mul(a,b);
+        mul(arrA,arrB,representation);
         break;
     case 4:
-        division(a,b);
+        division(arrA,arrB,representation);
         break;    
     default:
         cout << "Kindly enter a number between 1 to 4 for the correct operation" << endl;
