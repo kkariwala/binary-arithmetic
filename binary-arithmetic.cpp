@@ -77,6 +77,23 @@ int main(){
     cout << "Enter the operation number (1 or 2 or 3 or 4)\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n";
     cin >> operation;
 
+        /*
+    Converting the numbers into individual binary arrays
+    */
+    int i = 0;
+    while (a > 0) {
+        // storing remainder in binary array
+        arrA[i] = a % 2;
+        a = a / 2;
+        i++;
+    }
+    i=0;
+    while (b>0){
+        arrB[i] = b % 2;
+        b = b / 2;
+        i++;
+    }
+
     switch (operation)
     {
     case 1:
