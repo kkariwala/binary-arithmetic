@@ -15,7 +15,7 @@ void add(int a[], int b[],int representation){
     int rem=0;
     int c[representation];
     string temp="";
-    for(int i=representation;i>=0;i--)
+    for(int i=representation-1;i>=0;i--)
     {
         int x=a[i];
         int y=b[i];
@@ -24,9 +24,9 @@ void add(int a[], int b[],int representation){
     }
     for(int i=0;i<representation;i++)
     {
-        temp+=c[i];
+        cout << c[i] << " ";
     }
-    cout << "Addiiton Result \n"<<temp;
+    cout << endl;
 }
 
 void sub(int a[], int b[],int representation){
@@ -190,7 +190,7 @@ int main(){
         //convert into 2's complement for negative number
         bool flag = false;
         int itr = 31;
-        while(itr--){
+        while(itr >= 0){
             if(flag){
                 if(arrA[itr] == 0){arrA[itr] = 1;}
                 else{arrA[itr] = 0;}
@@ -198,6 +198,7 @@ int main(){
             if(!flag && arrA[itr] == 1){
                 flag = true;
             }
+            itr--;
         }
     }
 
@@ -222,7 +223,7 @@ int main(){
         //convert into 2's complement for negative number
         bool flag = false;
         int itr = 31;
-        while(itr--){
+        while(itr >= 0){
             if(flag){
                 if(arrB[itr] == 0){arrB[itr] = 1;}
                 else{arrB[itr] = 0;}
@@ -230,18 +231,19 @@ int main(){
             if(!flag && arrB[itr] == 1){
                 flag = true;
             }
+            itr--;
         }
     }
 
-    // for(int i = 0 ; i< 32;i++){
-    //     cout << arrA[i] << " ";
-    // }
-    // cout << endl;
+    for(int i = 0 ; i< 32;i++){
+        cout << arrA[i] << " ";
+    }
+    cout << endl;
 
-    // for(int i = 0 ; i< 32;i++){
-    //     cout << arrB[i] << " ";
-    // }
-    // cout << endl;
+    for(int i = 0 ; i< 32;i++){
+        cout << arrB[i] << " ";
+    }
+    cout << endl;
 
     switch (operation)
     {
