@@ -6,13 +6,27 @@ void add(int a[], int b[],int representation){
     Addition function
 
     Parameters:
-    a(INTEGER) -> first integer in a decimal form
-    b(INTEGER) -> second integer in a decimal form
+    a(binary array) -> first array in a decimal form
+    b(binary array) -> second array in a decimal form
 
     Returns: Prints the result of a + b in first 32-bit binary form 
     and then in a decimal form.
     */
-   cout << "Addiiton Result \n";
+    int rem=0;
+    int c[representation];
+    string temp="";
+    for(int i=representation;i>=0;i--)
+    {
+        int x=a[i];
+        int y=b[i];
+        c[i]=(x+y+rem)%2;
+        rem=(rem+x+y)/2;
+    }
+    for(int i=0;i<representation;i++)
+    {
+        temp+=c[i];
+    }
+    cout << "Addiiton Result \n"<<temp;
 }
 
 void sub(int a[], int b[],int representation){
@@ -20,13 +34,88 @@ void sub(int a[], int b[],int representation){
     Subtraction function
     
     Parameters:
-    a(INTEGER) -> first integer in a decimal form
-    b(INTEGER) -> second integer in a decimal form
+    a(binary array) -> first array in a binary form
+    b(binary array) -> second array in a binary form
 
     Returns: Prints the result of a - b in first 32-bit binary form 
     and then in a decimal form.
     */
-   cout << "Subtraction Result \n";
+    int rem = 0;						
+	for(int i = representation - 1; i >= 0; i--)
+	{
+		
+		// Add a, b and carry
+		a[i] = a[i] + b[i] + rem;
+	
+		// If a[i] is 2
+		if(a[i] == 2)
+		{
+			a[i] = 0;
+			rem = 1;
+
+		}
+	
+		// If a[i] is 3
+		else if(a[i] == 3)
+		{
+			a[i] = 1;
+			rem = 1;
+		}
+		else
+			rem = 0;
+	}
+
+	cout << endl;
+	
+	// If carry is generated
+	// discard the carry
+	if(rem==1)
+	{	
+	
+	// print the result
+	for(int i = 0; i < representation; i++)
+	{
+			
+		// Print the result
+		cout<<a[i];	
+	}
+	}
+
+	// if carry is not generated
+	else				
+	{				
+		
+		// Calculate 2's Complement
+		// of the obtained result
+		for(int i = 0; i < representation; i++)
+		{				
+			if(a[i] == 1)
+				a[i] = 0;
+			else
+				a[i] = 1;
+		}
+		for(int i = representation- 1; i >= 0; i--)
+		{
+			if(a[i] == 0)
+			{
+				a[i] = 1;
+				break;
+			}
+		else
+			a[i] = 0;
+		}
+	
+		// Add -ve sign to represent
+		cout << "-";		
+	
+		// -ve result
+		// Print the resultant array
+		for(int i = 0; i < representation; i++)
+		{
+			cout << a[i];
+		}
+	}
+
 }
 
 void mul(int a[], int b[],int representation){
