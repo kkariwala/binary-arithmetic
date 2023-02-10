@@ -132,6 +132,7 @@ void division(int a[], int b[],int representation){
     Returns: Prints the result of a / b in first 32-bit binary form 
     and then in a decimal form.
     */
+   
    cout << "Division Result \n";
 }
 
