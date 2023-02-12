@@ -7,7 +7,7 @@
 #include "BinaryUtils.h"
 using namespace std;
 
-void divide(vector<int> a, vector<int> b, int REPRESENTATION){
+void divide(vector<int> a, vector<int> b, int REPRESENTATION,vector<int> &result){
     /*
     Division function
     
@@ -63,16 +63,7 @@ void divide(vector<int> a, vector<int> b, int REPRESENTATION){
 
     //Function to print result in the binary
     int decimalResult = (dividend ^ divisor) < 0 ? ~res + 1 : res;
-
-    vector<int> temp(REPRESENTATION,0);
-
-    cout << "Result in binary\n";
-    DecimalToBinary(temp,decimalResult,REPRESENTATION);
-    PrintBinary(temp,REPRESENTATION);
-
-    //Function to print result in decimal
-    cout << "Result in Decimal\n";
-    cout <<  decimalResult << endl;
+    DecimalToBinary(result,decimalResult,REPRESENTATION);
 }
 
 #endif
