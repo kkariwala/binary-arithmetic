@@ -7,6 +7,7 @@
 #include "BinaryUtils.h"
 using namespace std;
 
+//function to multiply two binary arrays
 void mul(vector<int> a, vector<int> b,int REPRESENTATION,vector<int> &result){
     /*
     Multiplication function
@@ -19,20 +20,20 @@ void mul(vector<int> a, vector<int> b,int REPRESENTATION,vector<int> &result){
     and then in a decimal form.
     */
     // vector<int> c(REPRESENTATION);
-    int l=0,k=0;
-    int j=0;
+    int firstNum=0,secondNum=0;
+    int index=0;
     for(int i=REPRESENTATION-1;i>=0;i--)
     {
-        l+=(pow(2,j)*a[i]);
-        j++;
+        firstNum+=(pow(2,index)*a[i]);
+        index++;
     }
-    j=0;
+    index=0;
     for(int i=REPRESENTATION-1;i>=0;i--)
     {
-        k+=(pow(2,j)*b[i]);
-        j++;
+        secondNum+=(pow(2,index)*b[i]);
+        index++;
     }
-    DecimalToBinary(result,l*k,REPRESENTATION);
+    DecimalToBinary(result,firstNum*secondNum,REPRESENTATION);
 }
 
 #endif
