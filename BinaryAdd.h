@@ -7,6 +7,7 @@
 #include "BinaryUtils.h"
 using namespace std;
 
+//function to add two binary arrays and display the result
 void add(vector<int> a, vector<int> b,int REPRESENTATION,vector<int> &result){
     /*
     Addition function
@@ -23,10 +24,10 @@ void add(vector<int> a, vector<int> b,int REPRESENTATION,vector<int> &result){
     //loop to bitwise add the two digits
     for(int i=REPRESENTATION-1;i>=0;i--)
     {
-        int x=a[i];
-        int y=b[i];
-        result[i]=(x+y+rem)%2;
-        rem=(rem+x+y)/2;
+        int firstNum=a[i];
+        int secondNum=b[i];
+        result[i]=(firstNum+secondNum+rem)%2;
+        rem=(rem+firstNum+secondNum)/2;
     }
 }
 
