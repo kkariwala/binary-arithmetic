@@ -7,6 +7,7 @@
 #include "BinaryUtils.h"
 using namespace std;
 
+//function to divide two binary arrays
 void divide(vector<int> a, vector<int> b, int REPRESENTATION,vector<int> &result){
     /*
     Division function
@@ -24,7 +25,7 @@ void divide(vector<int> a, vector<int> b, int REPRESENTATION,vector<int> &result
         cout << "Divide by 0, try again!\n";
         return;
     }
-
+    //finding the dividend & divisor
     int dividend = BinaryToDecimal(a,REPRESENTATION);
     int divisor = BinaryToDecimal(b,REPRESENTATION);
 
