@@ -16,6 +16,32 @@
 using namespace std;
 #define REPRESENTATION 32
 
+void input_one_integer(vector<int> &num){
+    int firstNum;
+    cout << "Enter the first integer\n";
+    cin >> firstNum;
+    DecimalToBinary(num, firstNum,REPRESENTATION);
+    cout << "Binary REPRESENTATION of Number 1\n";
+    PrintBinary(num,REPRESENTATION);
+}
+
+void input_two_integer(vector<int> &num1, vector<int> &num2){
+    int firstNum, secondNum;
+    cout << "Enter the first integer\n";
+    cin >> firstNum;
+
+    cout << "Enter the second integer\n";
+    cin >> secondNum;
+
+    DecimalToBinary(num1,firstNum,REPRESENTATION);
+    DecimalToBinary(num2,secondNum,REPRESENTATION);
+
+    cout << "Binary REPRESENTATION of Number 1\n";
+    PrintBinary(num1,REPRESENTATION);
+    cout << "Binary REPRESENTATION of Number 2\n";
+    PrintBinary(num2,REPRESENTATION);
+}
+
 int main(){
     int a, b;
     int operation;
@@ -23,56 +49,38 @@ int main(){
     cout << "Enter the operation number (1 or 2 or 3 or 4 or 5)\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Power\n6.Modulo\n7.Factorial\n";
     cin >> operation;
 
-    cout << "Enter the first integer\n";
-    cin >> a;
-
-    cout << "Enter the second integer\n";
-    cin >> b;
-
-
     vector<int> arrA(REPRESENTATION, 0);
     vector<int> arrB(REPRESENTATION, 0);
-
-    /*
-    Converting the numbers into individual binary arrays
-    */
-    DecimalToBinary(arrA,a,REPRESENTATION);
-    DecimalToBinary(arrB,b,REPRESENTATION);
-    
-    cout << "Binary REPRESENTATION of Number 1\n";
-    for(int i = 0 ; i< 32;i++){
-        cout << arrA[i] << " ";
-    }
-    cout << endl;
-    cout << "Binary REPRESENTATION of Number 2\n";
-    for(int i = 0 ; i< 32;i++){
-        cout << arrB[i] << " ";
-    }
-    cout << endl;
-
     vector<int> result(REPRESENTATION,0);
 
     switch (operation)
     {
     case 1:
+        input_two_integer(arrA,arrB);
         add(arrA,arrB,REPRESENTATION,result);
         break;
     case 2:
+        input_two_integer(arrA,arrB);
         sub(arrA,arrB,REPRESENTATION,result);
         break;
     case 3:
+        input_two_integer(arrA,arrB);
         mul(arrA,arrB,REPRESENTATION,result);
         break;
     case 4:
+        input_two_integer(arrA,arrB);
         divide(arrA,arrB,REPRESENTATION,result);
         break;
     case 5:
+        input_two_integer(arrA,arrB);
         power(arrA,arrB,REPRESENTATION,result); 
         break;
     case 6:
+        input_two_integer(arrA,arrB);
         modulo(arrA,arrB,REPRESENTATION,result);
         break;
     case 7:
+        input_one_integer(arrA);
         factorial(arrA,REPRESENTATION,result);
         break;   
     default:
