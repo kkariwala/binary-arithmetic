@@ -7,7 +7,7 @@
 #include "BinaryUtils.h"
 using namespace std;
 
-void add(vector<int> a, vector<int> b,int REPRESENTATION){
+void add(vector<int> a, vector<int> b,int REPRESENTATION,vector<int> &result){
     /*
     Addition function
 
@@ -20,23 +20,14 @@ void add(vector<int> a, vector<int> b,int REPRESENTATION){
     */
     int rem=0;
     //create a temporary array to store the result of the add
-    vector<int> c(REPRESENTATION);
     //loop to bitwise add the two digits
     for(int i=REPRESENTATION-1;i>=0;i--)
     {
         int x=a[i];
         int y=b[i];
-        c[i]=(x+y+rem)%2;
+        result[i]=(x+y+rem)%2;
         rem=(rem+x+y)/2;
     }
-
-    //Function to print result in the binary
-    cout << "Result in binary\n";
-    PrintBinary(c,REPRESENTATION);
-
-    //Function to print result in decimal
-    cout << "Result in Decimal\n";
-    cout << BinaryToDecimal(c,REPRESENTATION) << endl;
 }
 
 #endif

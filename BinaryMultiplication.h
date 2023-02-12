@@ -7,7 +7,7 @@
 #include "BinaryUtils.h"
 using namespace std;
 
-void mul(vector<int> a, vector<int> b,int REPRESENTATION){
+void mul(vector<int> a, vector<int> b,int REPRESENTATION,vector<int> &result){
     /*
     Multiplication function
     
@@ -18,7 +18,7 @@ void mul(vector<int> a, vector<int> b,int REPRESENTATION){
     Returns: Prints the result of a * b in first 32-bit binary form 
     and then in a decimal form.
     */
-    vector<int> c(REPRESENTATION);
+    // vector<int> c(REPRESENTATION);
     int l=0,k=0;
     int j=0;
     for(int i=REPRESENTATION-1;i>=0;i--)
@@ -32,14 +32,7 @@ void mul(vector<int> a, vector<int> b,int REPRESENTATION){
         k+=(pow(2,j)*b[i]);
         j++;
     }
-    DecimalToBinary(c,l*k,REPRESENTATION);
-    cout << "Result in binary\n";
-    PrintBinary(c,REPRESENTATION);
-
-    //Function to print result in decimal
-    cout << "Result in Decimal\n";
-    cout << l*k << endl;
-
+    DecimalToBinary(result,l*k,REPRESENTATION);
 }
 
 #endif

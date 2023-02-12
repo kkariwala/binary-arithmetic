@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void sub(vector<int> a, vector<int> b,int REPRESENTATION){
+void sub(vector<int> a, vector<int> b,int REPRESENTATION,vector<int> &result){
     /*
     Subtraction function
     
@@ -22,7 +22,7 @@ void sub(vector<int> a, vector<int> b,int REPRESENTATION){
     */
     //convert into 2's complement for negative number
     convertToTwoComplement(b,REPRESENTATION);
-    add(a,b,REPRESENTATION);
+    add(a,b,REPRESENTATION,result);
 }
 
 #endif
