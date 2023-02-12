@@ -8,7 +8,7 @@
 #include "BinaryAdd.h"
 
 using namespace std;
-
+// function to subtract two binary arrays
 void sub(vector<int> a, vector<int> b,int REPRESENTATION,vector<int> &result){
     /*
     Subtraction function
@@ -21,8 +21,8 @@ void sub(vector<int> a, vector<int> b,int REPRESENTATION,vector<int> &result){
     and then in a decimal form.
     */
     //convert into 2's complement for negative number
-    convertToTwoComplement(b,REPRESENTATION);
-    add(a,b,REPRESENTATION,result);
+    convertToTwoComplement(b,REPRESENTATION); // converting the second number to be subtracted in 2's complement
+    add(a,b,REPRESENTATION,result); // adding the first binary array and 2's complement of the second array
 }
 
 #endif
