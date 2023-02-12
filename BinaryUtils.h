@@ -6,21 +6,23 @@
 #include <string>
 using namespace std;
 
+//function to convert a number into it's 2's complement
 void convertToTwoComplement(vector<int> &x,int REPRESENTATION){
     bool flag = false;
-    int itr = REPRESENTATION-1;
-    while(itr >= 0){
+    int index = REPRESENTATION-1;
+    while(index >= 0){
         if(flag){
-            if(x[itr] == 0){x[itr] = 1;}
-            else{x[itr] = 0;}
+            if(x[index] == 0){x[index] = 1;}
+            else{x[index] = 0;}
         }
-        if(!flag && x[itr] == 1){
+        if(!flag && x[index] == 1){
             flag = true;
         }
-        itr--;
+        index--;
     }
 }
 
+//function to print binary number
 void PrintBinary(vector<int> a,int REPRESENTATION){
     for(int i = 0 ; i < REPRESENTATION;i++){
         cout << a[i] << " ";
@@ -40,6 +42,7 @@ int BinaryToDecimalHelper(vector<int> c,int REPRESENTATION){
     return decimalNum;
 }
 
+//function to convert binary to decimal
 int BinaryToDecimal(vector<int> c,int REPRESENTATION){
 
     if(c[0] == 0){
@@ -57,6 +60,7 @@ int BinaryToDecimal(vector<int> c,int REPRESENTATION){
     }
 }
 
+//function to convert decimalto binary
 void DecimalToBinary(vector<int> &arrA, int a,int REPRESENTATION){
     int i = REPRESENTATION-1;
     if(a > 0){
@@ -81,6 +85,7 @@ void DecimalToBinary(vector<int> &arrA, int a,int REPRESENTATION){
     }
 }
 
+//function to find MSB
 int mostSignBit(vector<int> num,int REPRESENTATION)
 {
     int mostSignBitIndex = -1;
@@ -92,6 +97,7 @@ int mostSignBit(vector<int> num,int REPRESENTATION)
     return mostSignBitIndex;
 }
 
+//function to check zero
 bool checkAllZero(vector<int> num,int REPRESENTATION){
     for(int i = 0 ; i < REPRESENTATION;i++){
         if(num[i]){
