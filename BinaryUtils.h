@@ -81,4 +81,24 @@ void DecimalToBinary(vector<int> &arrA, int a,int REPRESENTATION){
     }
 }
 
+int mostSignBit(vector<int> num,int REPRESENTATION)
+{
+    int mostSignBitIndex = -1;
+    for(int i = 0;i<REPRESENTATION;i++){
+        if(num[REPRESENTATION-i-1]){
+            mostSignBitIndex = i;
+        }
+    }
+    return mostSignBitIndex;
+}
+
+bool checkAllZero(vector<int> num,int REPRESENTATION){
+    for(int i = 0 ; i < REPRESENTATION;i++){
+        if(num[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 #endif
