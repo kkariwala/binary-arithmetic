@@ -7,7 +7,7 @@
 #include "BinaryMultiplication.h"
 #include "BinarySubtract.h"
 using namespace std;
-
+//function to find factorial of a number
 void factorial(vector<int> a, int REPRESENTATION,vector<int> &result){
     /*
     Power function
@@ -26,8 +26,8 @@ void factorial(vector<int> a, int REPRESENTATION,vector<int> &result){
     int itr = BinaryToDecimal(a,REPRESENTATION) - 1;
     while(itr){
         vector<int> temp(REPRESENTATION);
-        DecimalToBinary(temp,itr,REPRESENTATION);
-        mul(v,temp,REPRESENTATION,v);
+        DecimalToBinary(temp,itr,REPRESENTATION); //converting decomal to binary
+        mul(v,temp,REPRESENTATION,v); // finding the factorial by constant multiplication
         itr--;
     }
     result.assign(v.begin(),v.end());
