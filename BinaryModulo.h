@@ -10,6 +10,7 @@
 #include "BinarySubtract.h"
 using namespace std;
 
+//creating afunction to find modulo of the two binary arrays
 void modulo(vector<int> a, vector<int> b, int REPRESENTATION,vector<int> &result){
     /*
     Power function
@@ -26,8 +27,8 @@ void modulo(vector<int> a, vector<int> b, int REPRESENTATION,vector<int> &result
 
     vector<int> v(REPRESENTATION,0);
     vector<int> v1(REPRESENTATION,0);
-    divide(a,b,REPRESENTATION,v);
-    mul(b,v,REPRESENTATION,v1);
+    divide(a,b,REPRESENTATION,v); //dividing two binary arrays
+    mul(b,v,REPRESENTATION,v1); 
     sub(a,v1,REPRESENTATION,result);
 }
 
