@@ -8,6 +8,7 @@
 #include "BinaryMultiplication.h"
 using namespace std;
 
+// function to compute power of two binary numbers
 void power(vector<int> a, vector<int> b, int REPRESENTATION,vector<int> &result){
     /*
     Power function
@@ -22,12 +23,12 @@ void power(vector<int> a, vector<int> b, int REPRESENTATION,vector<int> &result)
 
     // check dividend == 0
 
-    vector<int> v(a);
+    vector<int> v(a); 
     int exponent = BinaryToDecimal(b,REPRESENTATION);
     if(exponent < 0){
         return;
     }
-    for(int i = 1; i < exponent;i++){
+    for(int index = 1; index< exponent;index++){
         mul(v,a,REPRESENTATION,v);
     }
     result.assign(v.begin(),v.end());
