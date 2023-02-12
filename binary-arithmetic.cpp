@@ -8,23 +8,10 @@
 #include "BinaryAdd.h"
 #include "BinarySubtract.h"
 #include "BinaryMultiplication.h"
+#include "BinaryDivision.h"
 
 using namespace std;
 #define REPRESENTATION 32
-
-void division(vector<int> a, vector<int> b){
-    /*
-    Division function
-    
-    Parameters:
-    a(INTEGER) -> first integer in a decimal form
-    b(INTEGER) -> second integer in a decimal form
-
-    Returns: Prints the result of a / b in first 32-bit binary form 
-    and then in a decimal form.
-    */
-   cout << "Division Result \n";
-}
 
 int main(){
     int a, b;
@@ -71,7 +58,7 @@ int main(){
         mul(arrA,arrB,REPRESENTATION);
         break;
     case 4:
-        division(arrA,arrB);
+        divide(arrA,arrB,REPRESENTATION);
         break;    
     default:
         cout << "Kindly enter a number between 1 to 4 for the correct operation" << endl;
