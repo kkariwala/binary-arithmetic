@@ -16,6 +16,7 @@
 using namespace std;
 #define REPRESENTATION 32
 
+//taking the first integer as input and converting it into binary number
 void input_one_integer(vector<int> &num){
     int firstNum;
     cout << "Enter the first integer\n";
@@ -25,6 +26,7 @@ void input_one_integer(vector<int> &num){
     PrintBinary(num,REPRESENTATION);
 }
 
+//taking the second integer as input and converting it into binary number
 void input_two_integer(vector<int> &num1, vector<int> &num2){
     int firstNum, secondNum;
     cout << "Enter the first integer\n";
@@ -52,7 +54,7 @@ int main(){
     vector<int> arrA(REPRESENTATION, 0);
     vector<int> arrB(REPRESENTATION, 0);
     vector<int> result(REPRESENTATION,0);
-
+    //switch case to implement which function to implement
     switch (operation)
     {
     case 1:
