@@ -48,7 +48,7 @@ int main(){
     int a, b;
     int operation;
 
-    cout << "Enter the operation number (1 or 2 or 3 or 4 or 5)\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Power\n6.Modulo\n7.Factorial\n";
+    cout << "Enter the operation number (1 or 2 or 3 or 4 or 5 or 6 or 7)\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Power\n6.Modulo\n7.Factorial\n";
     cin >> operation;
 
     vector<int> arrA(REPRESENTATION, 0);
